@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" width="300" height="300">
+    <Spotify msg="Digite o nome do artista/grupo"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Spotify from './components/Spotify.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Spotify
   }
 }
 </script>
