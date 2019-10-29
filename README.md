@@ -1,4 +1,6 @@
-# spotify
+# Spotify Popularity
+
+A simple site that shows the most popular music of artist in spotify.
 
 ## Project setup
 ```
