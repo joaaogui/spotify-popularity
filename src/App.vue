@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" width="300" height="300">
-    <Spotify msg="Digite o nome do artista/grupo"/>
+    <Spotify msg="Digite o nome do artista/grupo/borabora"/>
   </div>
 </template>
 
