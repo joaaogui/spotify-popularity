@@ -1,0 +1,48 @@
+<template>
+    <v-text-field
+            @keyup.enter="searchArtist"
+            hide-details="auto"
+            placeholder="Enter the Artist/Group name"
+            v-model="artistName"
+            :loading="loading"
+            :error-messages="errorMessage"
+    />
+</template>
+
+<script>
+    import {mapState} from "vuex"
+    import {searchArtist} from "@/utils/index"
+    import {getToken} from "@/api/auth";
+
+    export default {
+        name: "SearchArtist",
+        data: () => ({
+            artistName: "",
+            loading: false,
+            errorMessage: ''
+        }),
+        mounted() {
+            this.artistName = this.input
+        },
+        computed: {
+            ...mapState([
+                "input"
+            ])
+        },
+        methods: {
+            async searchArtist() {
+                this.loading = true
+                this.errorMessage = ""
+                try {
+                    const token = await getToken()
+                    this.$store.commit('setToken', token.data.access_token)
+                    await searchArtist(this.artistName)
+                    this.$router.push({name: "Songs", params: {title: this.artistName}})
+                } catch (e) {
+                    this.errorMessage = "Artist not found!"
+                }
+                this.loading = false
+            }
+        }
+    }
+</script>

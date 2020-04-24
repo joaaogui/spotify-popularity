@@ -5,9 +5,6 @@ const axios = axiosInstance.create({
     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 })
 
-let data = {
-    "grant_type": "client_credentials",
-}
 const getToken = () => axios.post('', `grant_type=client_credentials&client_id=${process.env.VUE_APP_CLIENT_ID}&client_secret=${process.env.VUE_APP_CLIENT_SECRET}`)
 
 export {

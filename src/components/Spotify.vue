@@ -116,7 +116,6 @@
 </script>
 
 <style scoped>
-
     .best-music {
         font-weight: bold;
     }
