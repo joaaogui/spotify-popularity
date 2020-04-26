@@ -9,6 +9,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
+    },
+    {
+      path: "/:artist",
+      name: "Songs",
+      component: () => import("@/views/Songs")
     }
   ]
 })

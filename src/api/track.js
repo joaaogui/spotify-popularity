@@ -1,7 +1,7 @@
 import axios from "./index"
 
-const getTrack = (trackId) => axios.get(`tracks/${trackId}/`)
+const getTracks = (tracks) => axios.get(`tracks/?ids=${tracks}`)
 
 export {
-    getTrack
+    getTracks
 }

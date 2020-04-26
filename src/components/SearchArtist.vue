@@ -37,7 +37,7 @@
                     const token = await getToken()
                     this.$store.commit('setToken', token.data.access_token)
                     await searchArtist(this.artistName)
-                    this.$router.push({name: "Songs", params: {title: this.artistName}})
+                    this.$router.push({name: "Songs", params: {artist: this.artistName}})
                 } catch (e) {
                     this.errorMessage = "Artist not found!"
                 }
