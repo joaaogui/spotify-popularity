@@ -35,11 +35,10 @@ const searchSeveralAlbums = async (albumsIds) => {
   try {
     let begin = 0
     let end = 20
-    while (end <= albumsIds.length + 20) {
+    while (end <= albumsIds.length) {
       const albums = await getSeveralAlbums(albumsIds.slice(begin, end))
       begin = end + 1
       end += 20
-      console.log(albums)
       totalAlbums.push(...albums.data.albums.map(album => album.tracks.items))
     }
     await getTrackPopularity(totalAlbums.map(album => album.map(track => track.id)).flat())
