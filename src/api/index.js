@@ -1,9 +1,11 @@
 import axiosInstance from "axios"
+import store from "@/store/index"
 
-console.log(localStorage.getItem('token'))
+console.log(store.state.token)
+console.log("CHAMA")
 const axios = axiosInstance.create({
     baseURL: process.env.VUE_APP_API_URL,
-    headers: {'Authorization': `Bearer ${localStorage.getItem('token')} adasdasd`}
+    headers: {'Authorization': `Bearer ${store.state.token}`}
 })
 
 // axios.interceptors.response.use(function (response) {

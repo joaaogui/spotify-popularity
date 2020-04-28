@@ -1,7 +1,4 @@
 import axios from "./index"
 
-const getAlbumTracks = (albumId) => axios.get(`albums/${albumId}/tracks?limit=50`)
-
-export {
-  getAlbumTracks
-}
+export const getAlbumTracks = (albumId) => axios.get(`albums/${albumId}/tracks?limit=50`)
+export const getSeveralAlbums = (albums) => axios.get(`albums/?ids=${albums}`)
