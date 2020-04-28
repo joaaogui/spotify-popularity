@@ -15,6 +15,14 @@ export default new Vuex.Store({
     },
     setTracks(state, tracks) {
       state.tracks = tracks
+    },
+    setInput(state, input) {
+      state.input = input
+    }
+  },
+  getters: {
+    showAppBar: state => {
+      return !!state.input
     }
   },
   actions: {

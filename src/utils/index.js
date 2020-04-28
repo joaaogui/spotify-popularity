@@ -4,6 +4,7 @@ import {getTracks} from "@/api/track";
 import store from "@/store/index"
 
 export const searchArtist = async (artistName) => {
+  store.commit("setInput", artistName)
   try {
     const artist = await getArtist(artistName)
     await searchAlbums(artist.data.artists.items[0].id)
