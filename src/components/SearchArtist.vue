@@ -32,12 +32,11 @@
         this.loading = true
         this.errorMessage = ""
         try {
-          import('@/utils')
-            .then(utils => {
-              utils.searchArtist(this.artistName)
-            })
+          let utils = await import('@/utils')
+          await utils.searchArtist(this.artistName)
           this.$router.push({name: "Songs", params: {artist: this.artistName}})
         } catch (e) {
+          console.log(e)
           this.errorMessage = "Artist not found!"
         }
         this.loading = false
