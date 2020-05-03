@@ -3,12 +3,10 @@
         <v-app-bar
             :value="showAppBar && this.$route.name === 'Songs'"
             app
-            class="pr-12"
-            flat
-            height="100">
+            flat>
             <v-img
                 @click="goHome"
-                class="mr-4"
+                class="mr-2"
                 contain
                 max-height="50"
                 max-width="75"

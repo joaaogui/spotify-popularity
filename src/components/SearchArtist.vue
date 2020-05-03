@@ -1,10 +1,10 @@
 <template>
     <v-text-field
-        @keyup.enter="searchArtist"
+        @keyup.enter="searchArtist($event)"
         hide-details="auto"
         placeholder="Enter the Artist/Group name"
-        v-model="artistName"
         :loading="loading"
+        v-model="artistName"
         :error-messages="errorMessage"
     />
 </template>
@@ -16,20 +16,21 @@
     name: "SearchArtist",
     data: () => ({
       artistName: "",
-      loading: false,
       errorMessage: ''
     }),
-    mounted() {
-      this.artistName = this.input
-    },
     computed: {
       ...mapState([
-        "input"
+        "input",
+        "loading"
       ])
     },
+    created() {
+      this.artistName = this.input
+    },
     methods: {
-      async searchArtist() {
-        this.loading = true
+      async searchArtist(event) {
+        this.artistName = event.target.value
+        this.$store.commit('toggleLoading')
         this.errorMessage = ""
         try {
           let utils = await import('@/utils')
@@ -39,7 +40,7 @@
           console.log(e)
           this.errorMessage = "Artist not found!"
         }
-        this.loading = false
+        this.$store.commit('toggleLoading')
       }
     }
   }

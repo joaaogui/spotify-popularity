@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     input: '',
     token: '',
-    tracks: []
+    tracks: [],
+    loading: false
   },
   mutations: {
     setToken(state, token) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     setInput(state, input) {
       state.input = input
+    },
+    toggleLoading(state){
+      state.loading = !state.loading
     }
   },
   getters: {
