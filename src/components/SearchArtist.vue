@@ -6,6 +6,8 @@
         :loading="loading"
         v-model="artistName"
         :error-messages="errorMessage"
+        append-outer-icon='mdi-magnify'
+        @click:append-outer="searchArtist(null)"
     />
 </template>
 
@@ -29,7 +31,10 @@
     },
     methods: {
       async searchArtist(event) {
-        this.artistName = event.target.value
+        if(event){
+          this.artistName = event.target.value
+        }
+
         this.$store.commit('toggleLoading')
         this.errorMessage = ""
         try {
