@@ -11,6 +11,7 @@
                 sm="8"
             >
                 <v-img src="../assets/logo.png"/>
+                <span class="text-center display-1 font-weight-light">Search for an artist name and find out his most popular track</span>
                 <SearchArtist/>
             </v-col>
         </v-row>

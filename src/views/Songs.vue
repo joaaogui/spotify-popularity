@@ -1,5 +1,11 @@
 <template>
     <v-container>
+        <v-row>
+            <v-col sm="1" class="text-center font-weight-light">Position</v-col>
+            <v-col cols="1" class="text-center font-weight-light hidden-sm-and-down">Album Image</v-col>
+            <v-col sm="8" md="8" lg="9" class="text-center font-weight-light">Track Informations</v-col>
+            <v-col sm="2" md="1" lg="1" class="text-left font-weight-light">Popularity</v-col>
+        </v-row>
         <v-row align="center" v-for="(track, index) in tracks" :key="track.id" no-gutters class="pt-2">
             <v-col cols="1" class="text-center display-1 font-weight-thin">{{index + 1}}</v-col>
             <v-col cols="1" class="hidden-sm-and-down">
