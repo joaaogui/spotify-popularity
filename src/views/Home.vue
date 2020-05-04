@@ -11,8 +11,10 @@
                 sm="8"
             >
                 <v-img src="../assets/logo.png"/>
-                <span class="text-center display-1 font-weight-light">Search for an artist name and find out his most popular track</span>
-                <SearchArtist/>
+                <div class="mt-4">
+                <span class="text-center display-1 font-weight-light">Search for an artist and find out his most popular track</span>
+                </div>
+                    <SearchArtist/>
             </v-col>
         </v-row>
     </v-container>
