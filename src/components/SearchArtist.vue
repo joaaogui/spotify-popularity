@@ -2,7 +2,7 @@
     <v-text-field
         @keyup.enter="searchArtist($event)"
         hide-details="auto"
-        placeholder="Enter the Artist/Group name"
+        placeholder="Entedr the Artist/Group name"
         :loading="loading"
         v-model="artistName"
         :error-messages="errorMessage"
