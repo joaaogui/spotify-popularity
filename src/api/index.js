@@ -2,7 +2,7 @@ import axiosInstance from "axios"
 import store from "@/store/index"
 
 const axios = axiosInstance.create({
-    baseURL: process.env.VUE_APP_API_URL,
+    baseURL: import.meta.env.VITE_API_URL,
     headers: {'Authorization': `Bearer ${store.state.token}`}
 })
 
