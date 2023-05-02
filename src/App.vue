@@ -1,20 +1,19 @@
 <template>
-  <v-app>
-    sss
-    <v-app-bar :value="showAppBar && this.$route.name === 'Songs'" app flat>
-      <v-img
+  <div>
+    <div :value="showAppBar && this.$route.name === 'Songs'" app flat>
+      <img
         @click="goHome"
         class="mr-2"
         contain
         max-height="50"
         max-width="75"
-        src="src/assets/logo.png"
+        src="images/logo.png"
         style="cursor: pointer"
       />
       <SearchArtist v-if="showAppBar" />
-    </v-app-bar>
+    </div>
     <router-view />
-  </v-app>
+  </div>
 </template>
 
 <script>
