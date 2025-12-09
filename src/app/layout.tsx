@@ -18,10 +18,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}>
         <Providers>
-          <div className="min-h-screen bg-gradient-to-br from-background via-background to-zinc-900">
+          <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
             <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-spotify/5 via-transparent to-transparent pointer-events-none" />
             <div className="relative">
               {children}
@@ -32,4 +32,3 @@ export default function RootLayout({
     </html>
   )
 }
-

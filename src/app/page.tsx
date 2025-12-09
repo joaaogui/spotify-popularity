@@ -1,9 +1,15 @@
 import { Logo } from "@/components/logo"
 import { SearchArtist } from "@/components/search-artist"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center p-4">
+      {/* Theme Toggle */}
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
+
       <div className="w-full max-w-xl space-y-8 animate-slide-up">
         {/* Logo */}
         <div className="flex justify-center">
@@ -42,4 +48,3 @@ export default function Home() {
     </main>
   )
 }
-

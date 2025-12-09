@@ -4,6 +4,31 @@
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 142 71% 45%;
+    --radius: 0.75rem;
+    --spotify: 142 71% 45%;
+    --spotify-foreground: 0 0% 98%;
+  }
+
+  .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 6%;
@@ -23,7 +48,6 @@
     --border: 0 0% 14%;
     --input: 0 0% 18%;
     --ring: 142 71% 45%;
-    --radius: 0.75rem;
     --spotify: 142 71% 45%;
     --spotify-foreground: 0 0% 2%;
   }
@@ -72,4 +96,3 @@
   background: hsl(var(--accent) / 0.5);
   transform: scale(1.005);
 }
-

@@ -9,6 +9,7 @@ import { SearchArtist } from "@/components/search-artist"
 import { ArtistHeader } from "@/components/artist-header"
 import { TracksTable } from "@/components/tracks-table"
 import { TracksTableLoading } from "@/components/tracks-table/loading"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -29,6 +30,7 @@ export default function ArtistPage() {
             <div className="flex-1 max-w-md ml-auto">
               <SearchArtist />
             </div>
+            <ThemeToggle />
           </div>
         </div>
       </header>
@@ -85,4 +87,3 @@ export default function ArtistPage() {
     </div>
   )
 }
-
