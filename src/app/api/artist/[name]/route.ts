@@ -3,10 +3,11 @@ import { getArtistTopTracks } from "@/lib/spotify"
 
 export async function GET(
   request: Request,
-  { params }: { params: { name: string } }
+  { params }: { params: Promise<{ name: string }> }
 ) {
   try {
-    const artistName = decodeURIComponent(params.name)
+    const { name } = await params
+    const artistName = decodeURIComponent(name)
     const data = await getArtistTopTracks(artistName)
     
     return NextResponse.json(data)
@@ -18,4 +19,3 @@ export async function GET(
     )
   }
 }
-
