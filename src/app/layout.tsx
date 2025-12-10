@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Spotify Popularity",
   description: "Discover the most popular tracks from any artist on Spotify",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   },
 }
 
