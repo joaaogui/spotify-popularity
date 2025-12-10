@@ -28,7 +28,7 @@ export default function ArtistPage() {
               <Logo />
             </Link>
             <div className="flex-1 max-w-md ml-auto">
-              <SearchArtist />
+              <SearchArtist compact />
             </div>
             <ThemeToggle />
           </div>

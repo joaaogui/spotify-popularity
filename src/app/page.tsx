@@ -1,50 +1,81 @@
+import Link from "next/link"
 import { Logo } from "@/components/logo"
 import { SearchArtist } from "@/components/search-artist"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+const SUGGESTIONS = ["Taylor Swift", "The Weeknd", "Daft Punk"]
+
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center p-4">
+    <main className="min-h-screen flex flex-col">
       {/* Theme Toggle */}
       <div className="absolute top-4 right-4">
         <ThemeToggle />
       </div>
 
-      <div className="w-full max-w-xl space-y-8 animate-slide-up">
-        {/* Logo */}
-        <div className="flex justify-center">
-          <Logo size="large" />
+      {/* Centered content */}
+      <div className="flex-1 flex items-center justify-center px-4">
+        <div className="w-full max-w-xl space-y-8 text-center">
+          {/* Logo */}
+          <div className="flex justify-center">
+            <Logo size="large" />
+          </div>
+
+          {/* Tagline */}
+          <div className="space-y-2">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
+              Discover any artist&apos;s{" "}
+              <span className="text-spotify">most popular</span>{" "}
+              tracks
+            </h1>
+            <p className="text-muted-foreground">
+              Search for an artist and see their tracks ranked by Spotify popularity
+            </p>
+          </div>
+
+          {/* Search */}
+          <div className="flex justify-center">
+            <SearchArtist className="w-full" />
+          </div>
+
+          {/* Hints */}
+          <div className="text-sm text-muted-foreground">
+            <p>
+              Try searching for{" "}
+              {SUGGESTIONS.map((suggestion, index) => (
+                <span key={suggestion}>
+                  <Link
+                    href={`/artist/${encodeURIComponent(suggestion)}`}
+                    className="text-foreground font-medium hover:text-spotify transition-colors"
+                  >
+                    {suggestion}
+                  </Link>
+                  {index < SUGGESTIONS.length - 1 && (index === SUGGESTIONS.length - 2 ? ", or " : ", ")}
+                </span>
+              ))}
+            </p>
+          </div>
+
+          {/* Decorative elements */}
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-spotify/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-spotify/3 rounded-full blur-3xl pointer-events-none" />
         </div>
-
-        {/* Tagline */}
-        <div className="text-center space-y-2">
-          <h1 className="text-2xl md:text-3xl font-light text-foreground/90">
-            Discover any artist&apos;s{" "}
-            <span className="font-semibold text-spotify">most popular</span>{" "}
-            tracks
-          </h1>
-          <p className="text-muted-foreground">
-            Search for an artist and see their tracks ranked by Spotify popularity
-          </p>
-        </div>
-
-        {/* Search */}
-        <SearchArtist size="large" className="w-full" />
-
-        {/* Popular searches hint */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground/60">
-            Try searching for{" "}
-            <span className="text-muted-foreground">Taylor Swift</span>,{" "}
-            <span className="text-muted-foreground">The Weeknd</span>, or{" "}
-            <span className="text-muted-foreground">Daft Punk</span>
-          </p>
-        </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-spotify/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-spotify/3 rounded-full blur-3xl pointer-events-none" />
       </div>
+
+      {/* Footer */}
+      <footer className="py-4 text-center text-sm text-muted-foreground border-t border-border/50">
+        <p>
+          Powered by{" "}
+          <a
+            href="https://developer.spotify.com/documentation/web-api"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-spotify hover:underline"
+          >
+            Spotify Web API
+          </a>
+        </p>
+      </footer>
     </main>
   )
 }

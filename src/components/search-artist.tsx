@@ -7,11 +7,11 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
 interface SearchArtistProps {
-  size?: "default" | "large"
   className?: string
+  compact?: boolean
 }
 
-export function SearchArtist({ size = "default", className }: SearchArtistProps) {
+export function SearchArtist({ className, compact = false }: SearchArtistProps) {
   const [query, setQuery] = useState("")
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
@@ -25,20 +25,18 @@ export function SearchArtist({ size = "default", className }: SearchArtistProps)
     })
   }
 
-  const isLarge = size === "large"
-
   return (
     <form onSubmit={handleSearch} className={className}>
       <div className="relative flex items-center gap-2">
         <div className="relative flex-1">
-          <Search className={`absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground ${isLarge ? "h-5 w-5" : "h-4 w-4"}`} />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-4 w-4" />
           <Input
             type="text"
             placeholder="Enter artist or band name..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className={`
-              ${isLarge ? "h-14 pl-11 pr-4 text-lg" : "h-10 pl-9 pr-4"}
+              ${compact ? "h-9 pl-9 text-sm" : "h-12 pl-10 text-base"}
               bg-card/50 border-border/50 
               focus:border-spotify focus:ring-spotify/20
               placeholder:text-muted-foreground/60
@@ -50,16 +48,15 @@ export function SearchArtist({ size = "default", className }: SearchArtistProps)
         <Button
           type="submit"
           disabled={isPending || !query.trim()}
-          size={isLarge ? "lg" : "default"}
           className={`
             bg-spotify hover:bg-spotify/90 text-spotify-foreground font-semibold
-            ${isLarge ? "h-14 px-8" : ""}
+            ${compact ? "h-9 px-4" : "h-12 px-6"}
             transition-all duration-200
             disabled:opacity-50
           `}
         >
           {isPending ? (
-            <Loader2 className={`animate-spin ${isLarge ? "h-5 w-5" : "h-4 w-4"}`} />
+            <Loader2 className="animate-spin h-4 w-4" />
           ) : (
             "Search"
           )}
