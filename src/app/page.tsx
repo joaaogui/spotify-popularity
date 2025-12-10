@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Logo } from "@/components/logo"
 import { SearchArtist } from "@/components/search-artist"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { SpotifyAttribution } from "@/components/spotify-attribution"
 
 const SUGGESTIONS = ["Taylor Swift", "The Weeknd", "Daft Punk"]
 
@@ -63,18 +64,8 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="py-4 text-center text-sm text-muted-foreground border-t border-border/50">
-        <p>
-          Powered by{" "}
-          <a
-            href="https://developer.spotify.com/documentation/web-api"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-spotify hover:underline"
-          >
-            Spotify Web API
-          </a>
-        </p>
+      <footer className="py-4 text-center border-t border-border/50">
+        <SpotifyAttribution />
       </footer>
     </main>
   )

@@ -10,6 +10,7 @@ import { ArtistHeader } from "@/components/artist-header"
 import { TracksTable } from "@/components/tracks-table"
 import { TracksTableLoading } from "@/components/tracks-table/loading"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { SpotifyAttribution } from "@/components/spotify-attribution"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -84,6 +85,11 @@ export default function ArtistPage() {
           </div>
         )}
       </main>
+
+      {/* Footer */}
+      <footer className="py-4 text-center border-t border-border/50 mt-8">
+        <SpotifyAttribution />
+      </footer>
     </div>
   )
 }

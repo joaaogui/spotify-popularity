@@ -8,12 +8,11 @@ export async function getSpotifyToken(): Promise<string> {
     return cachedToken
   }
 
-  // Support both old VITE_ prefix and new SPOTIFY_ prefix
-  const clientId = process.env.SPOTIFY_CLIENT_ID || process.env.VITE_CLIENT_ID
-  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET || process.env.VITE_CLIENT_SECRET
+  const clientId = process.env.SPOTIFY_CLIENT_ID
+  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
 
   if (!clientId || !clientSecret) {
-    throw new Error("Missing Spotify credentials")
+    throw new Error("Missing Spotify credentials. Get yours at https://developer.spotify.com/dashboard")
   }
 
   const response = await fetch("https://accounts.spotify.com/api/token", {
